@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Robotics Operational Documentation Course</title>
+
+<style>
+body {font-family: Arial; margin:0; background:#f4f6f9;}
+header {background:#0a1f44; color:white; padding:20px; text-align:center;}
+section {background:white; margin:20px; padding:30px; border-radius:8px; display:none;}
+button {padding:10px 15px; background:#142850; color:white; border:none; border-radius:5px; margin-top:15px;}
+button:hover {background:#27496d;}
+.pass {color:green; font-weight:bold;}
+.fail {color:red; font-weight:bold;}
+h2 {color:#0a1f44;}
+input[type="text"] {padding:8px; width:250px;}
+.summary-box {background:#eef3ff; padding:20px; border-radius:8px; margin-top:20px;}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Documenting Operational Procedures in Robotics</h1>
+<p>Mobile Robotics Level 3 Structured Learning Course</p>
+</header>
+
+<!-- ================= MODULE 1 ================= -->
+
+<section id="m1_topic1" style="display:block;">
+<h2>Module 1 – Topic 1: Importance of Operational Documentation</h2>
+<p>Operational documentation is the structured recording of how robotic systems are installed, programmed, maintained, and evaluated...</p>
+<p>Without formal documentation, technicians may rely on memory or informal instruction...</p>
+<p>Professional documentation also provides legal and compliance protection...</p>
+<button onclick="nextSection('m1_topic2')">Next</button>
+</section>
+
+<section id="m1_topic2">
+<h2>Module 1 – Topic 2: Types of Documentation</h2>
+<p>Robotics operations rely on multiple document types including SOPs, maintenance logs...</p>
+<p>SOPs provide structured step-by-step guidance...</p>
+<p>When combined, these documents create a complete operational documentation system...</p>
+<button onclick="nextSection('m1_topic3')">Next</button>
+</section>
+
+<section id="m1_topic3">
+<h2>Module 1 – Topic 3: Risks of Poor Documentation</h2>
+<p>Poor documentation increases operational risk...</p>
+<p>Missing maintenance records prevent early detection of faults...</p>
+<p>Organizations that neglect documentation expose themselves to safety incidents...</p>
+<button onclick="nextSection('module1Quiz')">Proceed to Quiz</button>
+</section>
+
+<section id="module1Quiz">
+<h2>Module 1 Quiz (Pass Mark: 8/10)</h2>
+<form id="quiz1"></form>
+<button onclick="gradeQuiz('quiz1', answers1, 8, 'm2_topic1', 'result1', 10)">Submit Module 1</button>
+<p id="result1"></p>
+</section>
+
+<!-- ================= MODULE 2 ================= -->
+
+<section id="m2_topic1">
+<h2>Module 2 – Topic 1: Structure of an SOP</h2>
+<p>A Standard Operating Procedure (SOP) defines how a task must be performed...</p>
+<p>Each SOP must include a title, purpose, scope, equipment list...</p>
+<p>Structured SOPs reduce ambiguity and improve operational consistency...</p>
+<button onclick="nextSection('m2_topic2')">Next</button>
+</section>
+
+<section id="m2_topic2">
+<h2>Module 2 – Topic 2: Writing Clear Technical Instructions</h2>
+<p>Effective technical writing uses clear action verbs...</p>
+<p>Instructions must avoid vague wording...</p>
+<p>Clear formatting enhances readability...</p>
+<button onclick="nextSection('m2_topic3')">Next</button>
+</section>
+
+<section id="m2_topic3">
+<h2>Module 2 – Topic 3: Version Control and Document Management</h2>
+<p>Version control ensures that only approved documentation is used...</p>
+<p>Revision history sections track updates...</p>
+<p>Effective document management strengthens accountability...</p>
+<button onclick="nextSection('module2Quiz')">Proceed to Quiz</button>
+</section>
+
+<section id="module2Quiz">
+<h2>Module 2 Quiz (Pass Mark: 8/10)</h2>
+<form id="quiz2"></form>
+<button onclick="gradeQuiz('quiz2', answers2, 8, 'm3_topic1', 'result2', 10)">Submit Module 2</button>
+<p id="result2"></p>
+</section>
+
+<!-- ================= MODULE 3 ================= -->
+
+<section id="m3_topic1">
+<h2>Module 3 – Topic 1: Safety Documentation</h2>
+<p>Safety documentation identifies hazards before robotic systems are activated...</p>
+<p>Documented safety procedures reduce workplace accidents...</p>
+<p>Safety documentation demonstrates responsibility...</p>
+<button onclick="nextSection('m3_topic2')">Next</button>
+</section>
+
+<section id="m3_topic2">
+<h2>Module 3 – Topic 2: Maintenance Documentation</h2>
+<p>Maintenance logs record inspection dates...</p>
+<p>Preventive maintenance reduces breakdowns...</p>
+<p>Accurate documentation supports decision-making...</p>
+<button onclick="nextSection('m3_topic3')">Next</button>
+</section>
+
+<section id="m3_topic3">
+<h2>Module 3 – Topic 3: Testing & Incident Reporting</h2>
+<p>Testing validation reports compare expected results...</p>
+<p>Incident reports document malfunctions...</p>
+<p>These records support continuous improvement...</p>
+<button onclick="nextSection('module3Quiz')">Proceed to Quiz</button>
+</section>
+
+<section id="module3Quiz">
+<h2>Module 3 Quiz (Pass Mark: 8/10)</h2>
+<form id="quiz3"></form>
+<button onclick="gradeQuiz('quiz3', answers3, 8, 'finalExam', 'result3', 10)">Submit Module 3</button>
+<p id="result3"></p>
+</section>
+
+<!-- ================= FINAL EXAM ================= -->
+
+<section id="finalExam">
+<h2>Final Exam (Pass Mark: 15/30)</h2>
+<form id="finalQuiz"></form>
+<button onclick="gradeFinal()">Submit Final Exam</button>
+<p id="finalResult"></p>
+</section>
+
+<!-- ================= SUMMARY ================= -->
+
+<section id="courseSummary">
+<h2>Course Completion Summary</h2>
+<label>First Name:</label><br>
+<input type="text" id="firstName"><br><br>
+<label>Last Name:</label><br>
+<input type="text" id="lastName"><br><br>
+<button onclick="generateSummary()">Generate Summary</button>
+<div id="summaryOutput" class="summary-box"></div>
+</section>
+
+<script>
+
+/* Navigation */
+function nextSection(nextId){
+document.querySelectorAll("section").forEach(s=>s.style.display="none");
+document.getElementById(nextId).style.display="block";
+}
+
+/* MODULE QUESTIONS */
+
+const questionsModule1=[ ... ];  // (same as yours)
+const answers1=["a","a","b","a","a","a","a","b","a","a"];
+
+const questionsModule2=[ ... ];
+const answers2=["a","a","a","a","a","b","a","a","a","a"];
+
+const questionsModule3=[ ... ];
+const answers3=["a","a","b","a","a","a","a","a","a","a"];
+
+/* FINAL QUESTIONS – 30 REAL MCQs */
+
+const finalQuestions = [  /* FULL 30 MCQs HERE (same as previous message) */ ];
+
+/* SCORE TRACKING */
+let module1Score=0,module2Score=0,module3Score=0,finalScore=0;
+
+/* RENDER QUIZZES */
+function renderTF(formId,questions){
+let form=document.getElementById(formId);
+questions.forEach((q,i)=>{
+form.innerHTML+=`
+<p>${i+1}. ${q}<br>
+<input type="radio" name="q${i}" value="a"> True
+<input type="radio" name="q${i}" value="b"> False
+</p>`;
+});
+}
+
+renderTF("quiz1",questionsModule1);
+renderTF("quiz2",questionsModule2);
+renderTF("quiz3",questionsModule3);
+
+/* RENDER FINAL MCQ */
+let finalForm=document.getElementById("finalQuiz");
+finalQuestions.forEach((item,i)=>{
+finalForm.innerHTML+=`
+<p>${i+1}. ${item.q}<br>
+<input type="radio" name="fq${i}" value="a"> ${item.a}<br>
+<input type="radio" name="fq${i}" value="b"> ${item.b}<br>
+<input type="radio" name="fq${i}" value="c"> ${item.c}<br>
+<input type="radio" name="fq${i}" value="d"> ${item.d}<br>
+</p>`;
+});
+
+/* GRADING FUNCTIONS */
+function gradeQuiz(formId,key,passMark,nextModule,resultId,total){
+let score=0;
+let form=document.getElementById(formId);
+key.forEach((ans,i)=>{
+let selected=form.querySelector(`input[name="q${i}"]:checked`);
+if(selected && selected.value===ans){score++;}
+});
+if(formId==="quiz1")module1Score=score;
+if(formId==="quiz2")module2Score=score;
+if(formId==="quiz3")module3Score=score;
+let result=document.getElementById(resultId);
+if(score>=passMark){
+result.innerHTML=`Score: ${score}/${total} - PASS`;
+result.className="pass";
+nextSection(nextModule);
+}else{
+result.innerHTML=`Score: ${score}/${total} - FAIL`;
+result.className="fail";
+}
+}
+
+function gradeFinal(){
+let score=0;
+finalQuestions.forEach((item,i)=>{
+let selected=document.querySelector(`input[name="fq${i}"]:checked`);
+if(selected && selected.value===item.answer){score++;}
+});
+finalScore=score;
+let result=document.getElementById("finalResult");
+if(score>=15){
+result.innerHTML=`Score: ${score}/30 - PASS`;
+result.className="pass";
+nextSection("courseSummary");
+}else{
+result.innerHTML=`Score: ${score}/30 - FAIL`;
+result.className="fail";
+}
+}
+
+function generateSummary(){
+let fname=document.getElementById("firstName").value.trim();
+let lname=document.getElementById("lastName").value.trim();
+if(fname===""||lname===""){alert("Enter first and last name");return;}
+let overall=(module1Score>=8&&module2Score>=8&&module3Score>=8&&finalScore>=15)?"PASS":"FAIL";
+document.getElementById("summaryOutput").innerHTML=`
+<h3>${fname} ${lname}</h3>
+<p>Module 1: ${module1Score}/10</p>
+<p>Module 2: ${module2Score}/10</p>
+<p>Module 3: ${module3Score}/10</p>
+<p>Final Exam: ${finalScore}/30</p>
+<h3>Overall Status: ${overall}</h3>
+`;
+}
+
+</script>
+
+</body>
+</html>
